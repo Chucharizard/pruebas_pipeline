@@ -13,9 +13,9 @@ export default function App() {
         <section className="intro">
           <p className="eyebrow"><span /> HECHO PARA APRENDER</p>
           <h1>Hola, Steven.<br />Ahora con <em>React.</em></h1>
-          <p className="description">Una pequeña web. Un gran siguiente paso.<br />Nuestra práctica de contenedores, ahora interactiva.</p>
+          <p className="description">Una pequeña web. Un gran siguiente paso.<br />Nuestra práctica de pipelines, ahora interactiva.</p>
           <a className="explore" href="#demo">Prueba la demo <span>↓</span></a>
-          <div className="stack"><span>React</span><span>Docker</span><span>Ubuntu</span></div>
+          <div className="stack"><span>React</span><span>GitHub Actions</span><span>GitHub Pages</span></div>
         </section>
         <section className="demo" id="demo" aria-labelledby="demo-title">
           <div className="demo-top"><span className="demo-label">PLAYGROUND</span><span className="dots">● ● ●</span></div>

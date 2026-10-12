@@ -23,17 +23,17 @@ El job de despliegue usa el entorno `github-pages`, con `pages: write` e `id-tok
 
 La compilación usa `/pruebas_pipeline/` como ruta base, incluyendo el favicon y los archivos JavaScript y CSS.
 
-## Activar la publicación
+## Publicación configurada
 
-GitHub rechazó activar Pages en este repositorio privado porque el plan actual no lo admite. El build funciona sin activar la publicación.
+El repositorio es público y GitHub Pages está activado con **GitHub Actions** como origen. La variable `PAGES_ENABLED` está configurada con valor `true`.
 
-Una vez que la cuenta y la visibilidad permitan usar Pages:
+Para revisar la configuración o repetir un despliegue:
 
-1. En **Settings > Pages > Build and deployment > Source**, seleccionar **GitHub Actions**.
-2. En **Settings > Secrets and variables > Actions > Variables**, crear `PAGES_ENABLED` con valor `true`.
+1. En **Settings > Pages > Build and deployment > Source**, comprobar **GitHub Actions**.
+2. En **Settings > Secrets and variables > Actions > Variables**, comprobar `PAGES_ENABLED=true`. Usar `false` para detener los futuros despliegues sin desactivar los builds.
 3. En **Actions > React CI y GitHub Pages**, ejecutar **Run workflow** sobre `main`.
 
-URL prevista, todavía no publicada:
+URL publicada:
 
 https://chucharizard.github.io/pruebas_pipeline/
 

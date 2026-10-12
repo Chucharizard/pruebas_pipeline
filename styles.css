@@ -1,0 +1,107 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #182b3b;
+  background: #f5f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #3473a2; outline-offset: 5px; }
+::selection { background: #ceeaa6; }
+.page { max-width: 1260px; margin: auto; padding: 0 64px; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 116px;
+  border-bottom: 1px solid #dcded6;
+}
+.brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 750; letter-spacing: -.7px; }
+.brand-mark {
+  display: grid;
+  place-content: center;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #182b3b;
+  color: #f5f4ef;
+  font-size: 23px;
+}
+.brand-mark span { position: absolute; top: 0; right: 3px; font-size: 13px; }
+.edition { font: 11px ui-monospace, monospace; letter-spacing: 1.5px; color: #596671; }
+.edition span { margin: 0 12px; color: #a0a599; }
+
+main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+  min-height: 640px;
+  padding: 74px 0 80px;
+}
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 26px; font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #566552; }
+.eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: #699744; }
+h1 { margin: 0 0 26px; font-size: clamp(46px, 5.5vw, 72px); line-height: 1.07; letter-spacing: -3.5px; font-weight: 750; }
+h1 em { font-style: normal; color: #6a8b40; }
+.description { font-size: 16px; line-height: 1.8; color: #6b7378; }
+.explore { display: inline-flex; align-items: center; gap: 34px; margin-top: 20px; font-weight: 650; font-size: 14px; }
+.explore span { display: grid; place-content: center; width: 30px; height: 30px; border: 1px solid #c9d0c2; border-radius: 50%; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 52px; }
+.stack span { padding: 7px 13px; border: 1px solid #d9ddd2; border-radius: 30px; font-size: 11px; color: #637064; }
+
+.project-card {
+  padding: 26px 36px;
+  border-radius: 22px;
+  background: #182b3b;
+  color: #eff4f5;
+  box-shadow: 0 18px 40px #182b3b0c;
+  text-align: center;
+  scroll-margin-top: 24px;
+}
+.card-top { display: flex; justify-content: space-between; align-items: center; font: 10px ui-monospace, monospace; letter-spacing: 2px; color: #b4c4cc; }
+.dots { font-size: 8px; letter-spacing: 3px; color: #6c7e86; }
+.code-mark { margin: 36px auto 26px; font: 64px ui-monospace, monospace; letter-spacing: -8px; color: #cde4ab; }
+h2 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.5px; }
+.project-card p { margin: 0; font-size: 12px; line-height: 1.6; color: #a9bdc7; }
+.project-details { margin: 26px 0; text-align: left; }
+.project-details div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid #ffffff17; }
+.project-details dt { font-size: 12px; color: #a9bdc7; }
+.project-details dd { margin: 0; font: 12px ui-monospace, monospace; }
+.primary { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-radius: 10px; background: #cde4ab; color: #182b3b; font-size: 13px; font-weight: 700; }
+.primary:hover { background: #ddefbf; }
+.primary span { font-size: 21px; font-weight: 400; line-height: 1; }
+.project-card .card-note { margin-top: 17px; font-size: 10px; }
+
+footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; border-top: 1px solid #dcded6; color: #7a837e; font-size: 11px; }
+footer > span:last-child { font: 10px ui-monospace, monospace; letter-spacing: 1px; }
+.footer-arrow { margin-left: 16px; color: #566552; }
+
+@media (max-width: 800px) {
+  .page { padding: 0 28px; }
+  header { height: 90px; }
+  .edition { font-size: 9px; letter-spacing: .7px; }
+  .edition span { margin: 0 5px; }
+  main { grid-template-columns: 1fr; gap: 34px; padding: 48px 0; }
+  .stack { margin-top: 28px; }
+  .project-card { width: 100%; max-width: 470px; justify-self: center; }
+  .intro { padding-bottom: 8px; }
+  h1 { font-size: 56px; }
+  footer { font-size: 10px; }
+}
+@media (max-width: 380px) {
+  .page { padding: 0 18px; }
+  .edition { display: none; }
+  h1 { font-size: 47px; }
+  .project-card { padding: 22px; }
+  footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

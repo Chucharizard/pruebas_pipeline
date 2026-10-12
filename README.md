@@ -1,40 +1,34 @@
 # pruebas_pipeline
 
-Demo interactiva con React y Vite para practicar integración continua y despliegue con GitHub Actions.
+Práctica de una página estática hecha únicamente con HTML y CSS, publicada con un workflow personalizado de GitHub Actions.
 
-## Desarrollo local
+## Archivos
 
-```bash
-npm ci
-npm run dev
+```text
+.github/
+  workflows/
+    deploy.yml
+index.html
+styles.css
 ```
 
-## Workflow personalizado
+Para verla localmente, abrir `index.html` en el navegador.
 
-Archivo: `.github/workflows/deploy.yml`, en la rama `main`.
+## Despliegue
 
-- Push a `dev`: instala dependencias, revisa el código y compila React.
-- Pull request hacia `main`: ejecuta las mismas comprobaciones.
-- Push a `main`: comprueba, compila y guarda el artefacto de Pages.
-- Con `PAGES_ENABLED=true`: publica desde `main` usando `actions/deploy-pages@v4`.
-- `workflow_dispatch`: permite iniciar una ejecución manual desde Actions.
+El archivo `.github/workflows/deploy.yml` sigue el ejemplo del docente:
 
-El job de despliegue usa el entorno `github-pages`, con `pages: write` e `id-token: write`. La URL real se muestra en el entorno y en el resumen de la ejecución mediante `steps.deployment.outputs.page_url`.
+1. `actions/checkout@v6`: descarga el código.
+2. `actions/configure-pages@v5`: prepara Pages.
+3. `actions/upload-pages-artifact@v4`: sube los archivos desde `path: '.'`.
+4. `actions/deploy-pages@v4`: publica y devuelve `page_url`.
 
-La compilación usa `/pruebas_pipeline/` como ruta base, incluyendo el favicon y los archivos JavaScript y CSS.
+Se ejecuta al hacer push a `main`, o manualmente desde **Actions > Deploy pagina estatica en pages > Run workflow**, seleccionando `main`.
 
-## Publicación configurada
+`dev` es la rama de trabajo. Para publicar sus cambios, incorporarlos a `main` y hacer push.
 
-El repositorio es público y GitHub Pages está activado con **GitHub Actions** como origen. La variable `PAGES_ENABLED` está configurada con valor `true`.
+En **Settings > Pages > Source** está seleccionado **GitHub Actions**. El entorno `github-pages` muestra la URL real mediante `${{ steps.deployment.outputs.page_url }}`.
 
-Para revisar la configuración o repetir un despliegue:
+Web: https://chucharizard.github.io/pruebas_pipeline/
 
-1. En **Settings > Pages > Build and deployment > Source**, comprobar **GitHub Actions**.
-2. En **Settings > Secrets and variables > Actions > Variables**, comprobar `PAGES_ENABLED=true`. Usar `false` para detener los futuros despliegues sin desactivar los builds.
-3. En **Actions > React CI y GitHub Pages**, ejecutar **Run workflow** sobre `main`.
-
-URL publicada:
-
-https://chucharizard.github.io/pruebas_pipeline/
-
-Documentación: [custom workflows de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Las rutas de los archivos son relativas (`./styles.css`), por lo que funcionan tanto al abrir el HTML localmente como bajo `/pruebas_pipeline/`.
